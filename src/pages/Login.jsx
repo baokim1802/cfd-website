@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import Input from "../components/Input";
 
-export default function Login() {
+export default function Register() {
   const [form, setForm] = useState({});
 
   const [errors, setErrors] = useState({});
 
-  const btnClick = (en) => {
-    en.preventDefault();
+  const btnClick = (ev) => {
+    ev.preventDefault();
 
     const errorObj = {};
 
@@ -16,39 +16,40 @@ export default function Login() {
     }
 
     if (!form.password) {
-      errorObj.facebook = "Password is required";
+      errorObj.password = "Password is required";
     }
 
     setErrors(errorObj);
     if (Object.keys(errorObj).length === 0) {
-      console.log("Validated successfully!");
+      alert("Validated successfully!");
       // call api
     }
   };
   return (
-    <main class="register-course" id="main">
+    <main className="register-course" id="main">
       <section>
-        <div class="container">
-          <div class="wrap container">
-            <div class="main-sub-title">ĐĂNG NHAP</div>
-            <div class="form">
+        <div className="container">
+          <div className="wrap container">
+            <div className="main-sub-title">LOGIN</div>
+            <form className="form">
               <Input
-                label="Họ và tên"
+                label="Username"
                 onChange={(ev) => (form.username = ev.target.value)}
-                placeholder="Họ và tên bạn"
+                placeholder="Enter username"
                 error={errors.username}
+                required
               />
               <Input.Password
                 label="Password"
                 onChange={(ev) => (form.password = ev.target.value)}
-                placeholder="Password của bạn"
+                placeholder="Enter password"
                 error={errors.password}
+                required
               />
-
-              <div onClick="btnClick(en)" class="btn main rect">
+              <button className="btn main rect" onClick={btnClick}>
                 Login
-              </div>
-            </div>
+              </button>
+            </form>
           </div>
         </div>
       </section>

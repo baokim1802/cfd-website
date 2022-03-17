@@ -18,6 +18,9 @@ export default function Input({ label, error, required, ...props }) {
 Input.Number = (props) => {
   return <Input {...props} type="number" />;
 };
+Input.Password = (props) => {
+  return <Input {...props} type="password" />;
+};
 Input.Email = ({ label, placeholder, onChange, error }) => {
   return (
     <>
