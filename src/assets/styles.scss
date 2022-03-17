@@ -1,0 +1,15 @@
+.error-text {
+  color: red;
+  margin: -20px 0 20px 250px;
+}
+
+input[type="email"],
+input[type="number"] {
+  flex: 1;
+  height: 58px;
+  padding: 0 20px;
+  outline: none;
+  border: 1px solid #dbe0df;
+  font-family: main;
+  font-size: 16px;
+}
