@@ -21,7 +21,10 @@ Input.Number = (props) => {
 Input.Password = (props) => {
   return <Input {...props} type="password" />;
 };
-Input.Email = ({ label, placeholder, onChange, error }) => {
+Input.Email = (props) => {
+  return <Input {...props} type="email" />;
+};
+Input.Textarea = ({ label, placeholder, onChange, error }) => {
   return (
     <>
       <label className="label">
@@ -29,7 +32,7 @@ Input.Email = ({ label, placeholder, onChange, error }) => {
           {label}
           <span>*</span>
         </p>
-        <input onChange={onChange} type="email" placeholder={placeholder} />
+        <textarea name="" id="" cols={30} rows={10} defaultValue={""} />
       </label>
       {error && <p className="error-text">{error}</p>}
     </>

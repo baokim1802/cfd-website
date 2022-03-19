@@ -1,6 +1,6 @@
 import React from "react";
-import Course from "./components/Course";
-import bg_cover from "/src/assets/img/bg-cover.jpg";
+import Course from "../Course";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   return (
@@ -10,112 +10,20 @@ export default function Home() {
           <div className="content">
             <h2 className="title">Thực Chiến</h2>
             <h2 className="title">Tạo ra sản phẩm có giá trị</h2>
-            <div className="btn main round">KHÓA HỌC</div>
+            <Link to="/khoa-hoc" className="btn main round">
+              KHÓA HỌC
+            </Link>
           </div>
         </div>
         <div className="jarallax-img">
-          <img data-src={bg_cover} alt="" className="lazyload" />
+          <img data-src="/img/bg-cover.jpg" alt="" className="lazyload" />
           <div
             className="video-bg lazyload"
             data-src="video/CFD-video-bg2.mp4"
           />
         </div>
       </div>
-      <section className="section-courseoffline">
-        <div className="container">
-          <p className="top-des">
-            The readable content of a page when looking at its layout. The point
-            of using Lorem Ipsum is that it has a more-or-less normal
-          </p>
-          <div className="textbox">
-            <h2 className="main-title">Khóa học Offline</h2>
-          </div>
-          <div className="list row">
-            <Course
-              status="Đã kết thúc"
-              userCount="12"
-              heartCount="100"
-              name="Front-end căn bản"
-              description="One of the best corporate fashion brands in Sydney???"
-              instructor="Trần Nghĩa"
-            />
-            <Course
-              status="Đang diễn ra"
-              userCount="12"
-              heartCount="100"
-              name="React JS"
-              description="One of the best corporate fashion brands in Sydney???"
-              instructor="Vương Đặng"
-            />
-            <Course
-              status="Sắp khai giảng"
-              userCount="12"
-              heartCount="100"
-              name="Animation"
-              description="One of the best corporate fashion brands in Sydney???"
-              instructor="Trần Nghĩa"
-            />
-            <Course
-              status="Sắp khai giảng"
-              userCount="12"
-              heartCount="100"
-              name="Scss, Grunt JS và Boostrap 4"
-              description="One of the best corporate fashion brands in Sydney???"
-              instructor="Trần Nghĩa"
-            />
-            <Course
-              status="Sắp khai giảng"
-              userCount="12"
-              heartCount="100"
-              name="UX/UI Design"
-              description="One of the best corporate fashion brands in Sydney???"
-              instructor="Trần Nghĩa"
-            />
-            <Course
-              status="Sắp khai giảng"
-              userCount="12"
-              heartCount="100"
-              name="Web Responsive"
-              description="One of the best corporate fashion brands in Sydney???"
-              instructor="Trần Nghĩa"
-            />
-          </div>
-        </div>
-      </section>
-      <section className="section-courseonline section-blue">
-        <div className="container">
-          <div className="textbox">
-            <h2 className="main-title">Khóa học Online</h2>
-          </div>
-          <div className="list row">
-            <Course
-              status="Đã kết thúc"
-              userCount="12"
-              heartCount="100"
-              name="Front-end căn bản"
-              description="One of the best corporate fashion brands in Sydney???"
-              instructor="Trần Nghĩa"
-            />
-            <Course
-              status="Đã kết thúc"
-              userCount="12"
-              heartCount="100"
-              name="Front-end nâng cao"
-              description="One of the best corporate fashion brands in Sydney???"
-              instructor="Trần Nghĩa"
-            />
-            <Course
-              status="Đã kết thúc"
-              userCount="12"
-              heartCount="100"
-              name="Laravel framework"
-              description="One of the best corporate fashion brands in Sydney???"
-              instructor="Trần Nghĩa"
-            />
-          </div>
-          <div className="text-deco">C</div>
-        </div>
-      </section>
+      <Course />
       <section className="section-different">
         <div className="container">
           <div className="row">
@@ -125,9 +33,9 @@ export default function Home() {
                 <span>đặc biệt</span> tại CFD
               </h2>
               <div className="videodif" data-src="video/CFD-video-intro.mp4">
-                <img src="img/img-cfd-dac-biet.jpg" alt="" />
+                <img src="/img/img-cfd-dac-biet.jpg" alt="" />
                 <div className="play-btn btn-video-intro">
-                  <img src="img/play-icon.svg" alt="" />
+                  <img src="/img/play-icon.svg" alt="" />
                 </div>
               </div>
             </div>
@@ -163,21 +71,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-      {/* <section class="section-3">
-      <div class="container">
-          <div class="video">
-              <iframe id="video-intro"
-                  src="https://www.youtube-nocookie.com/embed/6t-MjBazs3o?controls=0&showinfo=0&rel=0&enablejsapi=1&version=3&playerapiid=ytplayer"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen allowscriptaccess="always"></iframe>
-              <div class="video-src" data-src="video/CFD-video-intro.mp4"></div>
-              <div class="play-btn btn-video-intro">
-                  <img src="img/play-video-btn.png" alt="">
-              </div>
-          </div>
-      </div>
-  </section> */}
       <section className="section-testimonial">
         <div className="container">
           <div className="textbox">
@@ -194,7 +87,7 @@ export default function Home() {
                         <p>Thành viên CFD1</p>
                       </div>
                       <div className="quotes">
-                        <img src="img/quotes.svg" alt="" />
+                        <img src="/img/quotes.svg" alt="" />
                       </div>
                     </div>
                     <div className="content">
@@ -203,7 +96,7 @@ export default function Home() {
                     </div>
                     <div className="bottom">
                       <a href="#" target="_blank">
-                        <img src="img/facebook.svg" alt="" />
+                        <img src="/img/facebook.svg" alt="" />
                       </a>
                       <span>09/10/2020</span>
                     </div>
@@ -215,7 +108,7 @@ export default function Home() {
                         <p>Thành viên CFD1</p>
                       </div>
                       <div className="quotes">
-                        <img src="img/quotes.svg" alt="" />
+                        <img src="/img/quotes.svg" alt="" />
                       </div>
                     </div>
                     <div className="content">
@@ -226,7 +119,7 @@ export default function Home() {
                     </div>
                     <div className="bottom">
                       <a href="#" target="_blank">
-                        <img src="img/facebook.svg" alt="" />
+                        <img src="/img/facebook.svg" alt="" />
                       </a>
                       <span>01/10/2020</span>
                     </div>
@@ -238,7 +131,7 @@ export default function Home() {
                         <p>Thành viên CFD1</p>
                       </div>
                       <div className="quotes">
-                        <img src="img/quotes.svg" alt="" />
+                        <img src="/img/quotes.svg" alt="" />
                       </div>
                     </div>
                     <div className="content">
@@ -249,7 +142,7 @@ export default function Home() {
                     </div>
                     <div className="bottom">
                       <a href="#" target="_blank">
-                        <img src="img/facebook.svg" alt="" />
+                        <img src="/img/facebook.svg" alt="" />
                       </a>
                       <span>01/10/2020</span>
                     </div>
@@ -274,7 +167,7 @@ export default function Home() {
                             <p>Thành viên CFD1</p>
                           </div>
                           <div className="quotes">
-                            <img src="img/quotes.svg" alt="" />
+                            <img src="/img/quotes.svg" alt="" />
                           </div>
                         </div>
                         <div className="content">
@@ -283,7 +176,7 @@ export default function Home() {
                         </div>
                         <div className="bottom">
                           <a href="#" target="_blank">
-                            <img src="img/facebook.svg" alt="" />
+                            <img src="/img/facebook.svg" alt="" />
                           </a>
                           <span>09/10/2020</span>
                         </div>
@@ -306,7 +199,7 @@ export default function Home() {
                             <p>Thành viên CFD1</p>
                           </div>
                           <div className="quotes">
-                            <img src="img/quotes.svg" alt="" />
+                            <img src="/img/quotes.svg" alt="" />
                           </div>
                         </div>
                         <div className="content">
@@ -315,7 +208,7 @@ export default function Home() {
                         </div>
                         <div className="bottom">
                           <a href="#" target="_blank">
-                            <img src="img/facebook.svg" alt="" />
+                            <img src="/img/facebook.svg" alt="" />
                           </a>
                           <span>09/10/2020</span>
                         </div>
@@ -338,7 +231,7 @@ export default function Home() {
                             <p>Thành viên CFD1</p>
                           </div>
                           <div className="quotes">
-                            <img src="img/quotes.svg" alt="" />
+                            <img src="/img/quotes.svg" alt="" />
                           </div>
                         </div>
                         <div className="content">
@@ -347,7 +240,7 @@ export default function Home() {
                         </div>
                         <div className="bottom">
                           <a href="#" target="_blank">
-                            <img src="img/facebook.svg" alt="" />
+                            <img src="/img/facebook.svg" alt="" />
                           </a>
                           <span>09/10/2020</span>
                         </div>

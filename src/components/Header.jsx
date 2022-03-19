@@ -1,12 +1,14 @@
 import React from "react";
-import logo from "/src/assets/img/logo.svg";
-import avt from "/src/assets/img/avt.png";
+import { Link, NavLink } from "react-router-dom";
 
 export default function Header() {
+  const toggleMenu = () => {
+    document.body.classList.toggle("menu-is-show");
+  };
   return (
     <header id="header">
       <div className="wrap">
-        <div className="menu-hambeger">
+        <div className="menu-hambeger" onClick={toggleMenu}>
           <div className="button">
             <span />
             <span />
@@ -14,25 +16,27 @@ export default function Header() {
           </div>
           <span className="text">menu</span>
         </div>
-        <a href="#" className="logo">
-          <img src={logo} alt="" />
+        <Link to="/" className="logo">
+          <img src="/img/logo.svg" alt="" />
           <h1>CFD</h1>
-        </a>
+        </Link>
         <div className="right">
           <div className="have-login">
             <div className="account">
-              <a href="#" className="info">
+              <Link to="/ca-nhan" className="info">
                 <div className="name">Trần Lê Trọng Nghĩa</div>
                 <div className="avatar">
-                  <img src={avt} alt="" />
+                  <img src="/img/avt.png" alt="" />
                 </div>
-              </a>
+              </Link>
             </div>
             <div className="hamberger"></div>
             <div className="sub">
-              <a href="#">Khóa học của tôi</a>
-              <a href="#">Thông tin tài khoản</a>
-              <a href="#">Đăng xuất</a>
+              <NavLink to="/ca-nhan/khoa-hoc">Khóa học của tôi</NavLink>
+              <NavLink to="/ca-nhan" end>
+                Thông tin tài khoản
+              </NavLink>
+              <NavLink to="/dang-nhap">Đăng xuất</NavLink>
             </div>
           </div>
           {/* <div class="not-login bg-none">
