@@ -1,4 +1,6 @@
 import React from "react";
+import CoinHistoryItem from "./components/CoinHistoryItem";
+import RadioItem from "./components/RadioItem";
 
 export default function Coin() {
   return (
@@ -22,36 +24,12 @@ export default function Coin() {
             <strong>Đổi COIN</strong>
           </h3>
           <div className="coininfo__box-ct">
-            <label className="checkcontainer">
-              Voucher Tiki 100k
-              <input type="radio" name="radio" />
-              <span className="checkmarkradio" />
-            </label>
-            <label className="checkcontainer">
-              Voucher Tiki 200k
-              <input type="radio" name="radio" />
-              <span className="checkmarkradio" />
-            </label>
-            <label className="checkcontainer">
-              Voucher Tiki 500k
-              <input type="radio" name="radio" />
-              <span className="checkmarkradio" />
-            </label>
-            <label className="checkcontainer">
-              Thẻ nạp điện thoại 100k
-              <input type="radio" name="radio" />
-              <span className="checkmarkradio" />
-            </label>
-            <label className="checkcontainer">
-              Thẻ nạp điện thoại 200k
-              <input type="radio" name="radio" />
-              <span className="checkmarkradio" />
-            </label>
-            <label className="checkcontainer">
-              Thẻ nạp điện thoại 500k
-              <input type="radio" name="radio" />
-              <span className="checkmarkradio" />
-            </label>
+            <RadioItem value="Voucher Tiki 100k" />
+            <RadioItem value="Voucher Tiki 200k" />
+            <RadioItem value="Voucher Tiki 500k" />
+            <RadioItem value="Thẻ nạp điện thoại 100k" />
+            <RadioItem value="Thẻ nạp điện thoại 200k" />
+            <RadioItem value="Thẻ nạp điện thoại 500k" />
             <small>
               <i>*Bạn có thể đổi COIN 1 lần</i>
             </small>
@@ -80,30 +58,24 @@ export default function Coin() {
             <strong>Trạng thái</strong>
           </div>
         </div>
-        <div className="itemhistory">
-          <div className="td">
-            <span className="coin red">-300</span>
-          </div>
-          <div className="td">09/09/2020</div>
-          <div className="td">Giới thiệu khóa học cho học viên mới</div>
-          <div className="td">Đã chấp nhận</div>
-        </div>
-        <div className="itemhistory">
-          <div className="td">
-            <span className="coin">+300</span>
-          </div>
-          <div className="td">18/10/2020</div>
-          <div className="td">Dùng COIN để quy đổi sang Voucher Tiki</div>
-          <div className="td">Đã chấp nhận</div>
-        </div>
-        <div className="itemhistory">
-          <div className="td">
-            <span className="coin red">-300</span>
-          </div>
-          <div className="td">18/10/2020</div>
-          <div className="td">Dùng COIN để đổi sang Thẻ nạp điện thoại</div>
-          <div className="td">Chờ duyệt</div>
-        </div>
+        <CoinHistoryItem
+          coin="+500"
+          date="09/12/2021"
+          content="Giới thiệu khóa học cho học viên mới"
+          status="Đã chấp nhận"
+        />
+        <CoinHistoryItem
+          coin="-300"
+          date="18/10/2021"
+          content="Dùng COIN để quy đổi sang Voucher Tiki"
+          status="Đã chấp nhận"
+        />
+        <CoinHistoryItem
+          coin="-300"
+          date="18/10/2020"
+          content="Dùng COIN để đổi sang Thẻ nạp điện thoại"
+          status="Chờ duyệt"
+        />
       </div>
     </div>
   );

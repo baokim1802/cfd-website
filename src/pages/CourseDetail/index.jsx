@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import CourseThumbnail from "../../components/CourseThumbnail";
+import Accordion from "../../components/Accordion";
+import Thumbnail from "../../components/Thumbnail";
 
 export default function CourseDetail() {
   const { slug } = useParams;
@@ -50,72 +51,39 @@ export default function CourseDetail() {
             <img src="/img/course-detail-img.png" alt="" />
           </div>
           <h3 className="title">nội dung khóa học</h3>
-          <div className="accordion">
-            <div className="accordion__title">
-              <div className="date">Ngày 1</div>
-              <h3>Giới thiệu HTML, SEO, BEM.</h3>
-            </div>
-            <div className="content">
-              I'd like to demonstrate a powerful little pattern called
-              “Server-Fetched Partials” that offers some tangible benefits over
-              alternatives like VueJS for simple page interactions.
-            </div>
-          </div>
-          <div className="accordion">
-            <div className="accordion__title">
-              <div className="date">Ngày 2</div>
-              <h3>CSS, CSS3, Flexbox, Grid</h3>
-            </div>
-            <div className="content">
-              I'd like to demonstrate a powerful little pattern called
-              “Server-Fetched Partials” that offers some tangible benefits over
-              alternatives like VueJS for simple page interactions.
-            </div>
-          </div>
-          <div className="accordion">
-            <div className="accordion__title">
-              <div className="date">Ngày 3</div>
-              <h3>Media Queries</h3>
-            </div>
-            <div className="content">
-              I'd like to demonstrate a powerful little pattern called
-              “Server-Fetched Partials” that offers some tangible benefits over
-              alternatives like VueJS for simple page interactions.
-            </div>
-          </div>
-          <div className="accordion">
-            <div className="accordion__title">
-              <div className="date">Ngày 4</div>
-              <h3>Boostrap 4</h3>
-            </div>
-            <div className="content">
-              I'd like to demonstrate a powerful little pattern called
-              “Server-Fetched Partials” that offers some tangible benefits over
-              alternatives like VueJS for simple page interactions.
-            </div>
-          </div>
-          <div className="accordion">
-            <div className="accordion__title">
-              <div className="date">Ngày 5</div>
-              <h3>Thực hành dự án website Landing Page</h3>
-            </div>
-            <div className="content">
-              I'd like to demonstrate a powerful little pattern called
-              “Server-Fetched Partials” that offers some tangible benefits over
-              alternatives like VueJS for simple page interactions.
-            </div>
-          </div>
-          <div className="accordion">
-            <div className="accordion__title">
-              <div className="date">Ngày 6</div>
-              <h3>Cài đặt Grunt và cấu trúc thư mục dự án</h3>
-            </div>
-            <div className="content">
-              I'd like to demonstrate a powerful little pattern called
-              “Server-Fetched Partials” that offers some tangible benefits over
-              alternatives like VueJS for simple page interactions.
-            </div>
-          </div>
+          <Accordion title="Giới thiệu HTML, SEO, BEM." date="Ngày 1">
+            I'd like to demonstrate a powerful little pattern called
+            “Server-Fetched Partials” that offers some tangible benefits over
+            alternatives like VueJS for simple page interactions.
+          </Accordion>
+          <Accordion title="CSS, CSS3, Flexbox, Grid" date="Ngày 2">
+            I'd like to demonstrate a powerful little pattern called
+            “Server-Fetched Partials” that offers some tangible benefits over
+            alternatives like VueJS for simple page interactions.
+          </Accordion>
+          <Accordion title="Media Queries" date="Ngày 3">
+            I'd like to demonstrate a powerful little pattern called
+            “Server-Fetched Partials” that offers some tangible benefits over
+            alternatives like VueJS for simple page interactions.
+          </Accordion>
+          <Accordion title="Boostrap 4" date="Ngày 4">
+            I'd like to demonstrate a powerful little pattern called
+            “Server-Fetched Partials” that offers some tangible benefits over
+            alternatives like VueJS for simple page interactions.
+          </Accordion>
+          <Accordion title="Thực hành dự án website Landing Page" date="Ngày 5">
+            I'd like to demonstrate a powerful little pattern called
+            “Server-Fetched Partials” that offers some tangible benefits over
+            alternatives like VueJS for simple page interactions.
+          </Accordion>
+          <Accordion
+            title="Cài đặt Grunt và cấu trúc thư mục dự án"
+            date="Ngày 6"
+          >
+            I'd like to demonstrate a powerful little pattern called
+            “Server-Fetched Partials” that offers some tangible benefits over
+            alternatives like VueJS for simple page interactions.
+          </Accordion>
           <h3 className="title">yêu cầu cần có</h3>
           <div className="row row-check">
             <div className="col-md-6">Đã từng học qua HTML, CSS</div>
@@ -196,19 +164,19 @@ export default function CourseDetail() {
             <h2 className="main-title">THÀNH VIÊN</h2>
           </div>
           <div className="list row">
-            <CourseThumbnail
+            <Thumbnail
               name="React JS"
               description="One of the best corporate fashion brands in Sydney???"
               instructor="Vương Đặng"
               img="/img/img.png"
             />
-            <CourseThumbnail
+            <Thumbnail
               name="Animation"
               description="One of the best corporate fashion brands in Sydney???"
               instructor="Trần Nghĩa"
               img="/img/img2.png"
             />
-            <CourseThumbnail
+            <Thumbnail
               name="Scss, Grunt JS và Boostrap 4"
               description="One of the best corporate fashion brands in Sydney???"
               instructor="Trần Nghĩa"
@@ -224,19 +192,19 @@ export default function CourseDetail() {
             <h2 className="main-title">Liên quan</h2>
           </div>
           <div className="list row">
-            <CourseThumbnail
+            <Thumbnail
               name="Front-end căn bản"
               description="One of the best corporate fashion brands in Sydney???"
               instructor="Vương Đặng"
               img="/img/img.png"
             />
-            <CourseThumbnail
+            <Thumbnail
               name="Front-end nâng cao"
               description="One of the best corporate fashion brands in Sydney???"
               instructor="Trần Nghĩa"
               img="/img/img2.png"
             />
-            <CourseThumbnail
+            <Thumbnail
               name="Laravel framework"
               description="One of the best corporate fashion brands in Sydney???"
               instructor="Trần Nghĩa"

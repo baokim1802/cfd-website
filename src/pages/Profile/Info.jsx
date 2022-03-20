@@ -26,7 +26,7 @@ export default function Info() {
         <p>
           Email<span>*</span>
         </p>
-        <input defaultValue="vuong.dang@dna.vn" disabled="" type="text" />
+        <input placeholder="example@gmail.com" disabled="" type="text" />
       </label>
       <label>
         <p>

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function CourseThumbnail({
+export default function Thumbnail({
   status,
   name,
   description,
@@ -10,9 +10,11 @@ export default function CourseThumbnail({
   heartCount,
   img,
   link,
+  buttonText,
+  className,
 }) {
   return (
-    <div className="col-md-4 course">
+    <div className={className || "col-md-4 course"}>
       <div className="wrap">
         <Link className="cover" to={`/khoa-hoc/${link || "chi-tiet"}`}>
           <img src={img || "/img/img1.png"} alt="" />
@@ -49,7 +51,7 @@ export default function CourseThumbnail({
             </div>
             <div className="name">{instructor}</div>
           </div>
-          <div className="register-btn">Đăng Ký</div>
+          <div className="register-btn">{buttonText || "Đăng Ký"}</div>
         </div>
       </div>
     </div>

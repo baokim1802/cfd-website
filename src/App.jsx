@@ -15,6 +15,7 @@ import Team from "./pages/Team";
 import Payment from "./pages/Profile/Payment";
 import CourseDetail from "./pages/CourseDetail";
 import Page404 from "./pages/Page404";
+import CountDown from "./pages/CountDown";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
           <Route path="/dang-ky" element={<Register />} />
           <Route path="*" element={<Page404 />} />
         </Route>
+        <Route path="/countdown" element={<CountDown />} />
       </Routes>
       {/*  <MainLayout>
          <Home />

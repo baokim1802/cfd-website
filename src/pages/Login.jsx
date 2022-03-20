@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Input from "../components/Input";
 
 export default function Register() {
+  const navigate = useNavigate();
   const [form, setForm] = useState({});
 
   const [errors, setErrors] = useState({});
@@ -21,7 +23,8 @@ export default function Register() {
 
     setErrors(errorObj);
     if (Object.keys(errorObj).length === 0) {
-      alert("Validated successfully!");
+      navigate("/ca-nhan");
+      // alert("Validated successfully!");
       // call api
     }
   };

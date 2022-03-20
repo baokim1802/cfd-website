@@ -89,33 +89,6 @@ export default function Register() {
                 onChange={(ev) => (form.age = ev.target.value)}
                 placeholder="Enter age"
               />
-
-              {/* <label className="disable">
-                <p>Sử dụng COIN</p>
-                <div className="checkcontainer">
-                  Hiện có <strong>300 COIN</strong>
-                  <input type="checkbox" checked="checked" />
-                  <span className="checkmark"></span>
-                </div>
-              </label>
-              <label className="disable">
-                <p>Sử dụng COIN</p>
-                <div className="checkcontainer">
-                  Hiện có <strong>300 COIN</strong>
-                  <input type="checkbox" defaultChecked="checked" />
-                  <span className="checkmark" />
-                </div>
-              </label>
-              <label>
-                <p>Hình thức thanh toán</p>
-                <div className="select">
-                  <div className="head">Chuyển khoản</div>
-                  <div className="sub">
-                    <a href="#">Chuyển khoản</a>
-                    <a href="#">Thanh toán tiền mặt</a>
-                  </div>
-                </div>
-              </label> */}
               <label>
                 <p>Ý kiến cá nhân</p>
                 <input

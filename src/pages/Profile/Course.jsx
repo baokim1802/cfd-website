@@ -1,72 +1,27 @@
 import React from "react";
+import CourseItem from "./components/CourseItem";
 
 export default function Course() {
   return (
     <div className="tab2" style={{ display: "block" }}>
-      <div className="item">
-        <div className="cover">
-          <img src="/img/img3.png" alt="" />
-        </div>
-        <div className="info">
-          <a href="#" className="name">
-            front-end căn bản
-          </a>
-          <div className="date">Khai giảng ngày 09/09/2019</div>
-          <div className="row">
-            <div className="">
-              <img src="/img/clock.svg" alt="" className="icon" />
-              54 giờ
-            </div>
-            <div className="">
-              <img src="/img/play.svg" alt="" className="icon" />
-              25 video
-            </div>
-            <div className="">
-              <img src="/img/user.svg" alt="" className="icon" />
-              20 học viên
-            </div>
-          </div>
-          <div className="process">
-            <div className="line">
-              <div className="rate" style={{ width: "30%" }} />
-            </div>
-            30%
-          </div>
-          <div className="btn overlay round btn-continue">Tiếp tục học</div>
-        </div>
-      </div>
-      <div className="item">
-        <div className="cover">
-          <img src="/img/img7.png" alt="" />
-        </div>
-        <div className="info">
-          <a href="#" className="name">
-            front-end nâng cao
-          </a>
-          <div className="date">Khai giảng ngày 09/09/2019</div>
-          <div className="row">
-            <div className="">
-              <img src="/img/clock.svg" alt="" className="icon" />
-              54 giờ
-            </div>
-            <div className="">
-              <img src="/img/play.svg" alt="" className="icon" />
-              25 video
-            </div>
-            <div className="">
-              <img src="/img/user.svg" alt="" className="icon" />
-              20 học viên
-            </div>
-          </div>
-          <div className="process">
-            <div className="line">
-              <div className="rate" style={{ width: "30%" }} />
-            </div>
-            30%
-          </div>
-          <div className="btn overlay round btn-continue">Tiếp tục học</div>
-        </div>
-      </div>
+      <CourseItem
+        title="front-end căn bản"
+        date="Khai giảng ngày 09/09/2019"
+        numHours="54"
+        numVideos="25"
+        numStudents="20"
+        progress="60"
+        img="/img/img8.png"
+      />
+      <CourseItem
+        title="front-end nâng cao"
+        date="Khai giảng ngày 09/18/2019"
+        numHours="81"
+        numVideos="36"
+        numStudents="18"
+        progress="35"
+        img="/img/img7.png"
+      />
     </div>
   );
 }

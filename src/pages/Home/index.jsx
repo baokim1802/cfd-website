@@ -1,6 +1,7 @@
 import React from "react";
 import Course from "../Course";
 import { Link } from "react-router-dom";
+import TextItem from "./components/TextItem";
 
 export default function Home() {
   return (
@@ -40,33 +41,27 @@ export default function Home() {
               </div>
             </div>
             <div className="contentbox col-md-6 col-sm-12 col-xs-12">
-              <div className="item">
-                <h4>Không cam kết đầu ra</h4>
-                <p>
-                  Với CFD thì việc cam kết đầu ra nó sẽ không có ý nghĩa nếu như
+              <TextItem
+                title="Không cam kết đầu ra"
+                content="Với CFD thì việc cam kết đầu ra nó sẽ không có ý nghĩa nếu như
                   cả người hướng dẫn và người học không thật sự tâm huyết và cố
                   gắng. Vì thế, đội ngũ CFD sẽ làm hết sức để giúp các thành
-                  viên tạo ra sản phẩm có giá trị, thay vì cam kết.
-                </p>
-              </div>
-              <div className="item">
-                <h4>Không chỉ là một lớp học</h4>
-                <p>
-                  CFD không phải một lớp học thuần túy, tất cả thành viên là một
+                  viên tạo ra sản phẩm có giá trị, thay vì cam kết."
+              />
+              <TextItem
+                title="Không chỉ là một lớp học"
+                content="CFD không phải một lớp học thuần túy, tất cả thành viên là một
                   team, cùng hổ trợ, chia sẻ và giúp đỡ nhau trong suốt quá
                   trình học và sau này, với sự hướng dẫn tận tâm của các thành
-                  viên đồng sáng lập.
-                </p>
-              </div>
-              <div className="item">
-                <h4>Không để ai bị bỏ lại phía sau</h4>
-                <p>
-                  Vì chúng ta là một team, những thành viên tiếp thu chậm sẽ
+                  viên đồng sáng lập."
+              />
+              <TextItem
+                title="Không để ai bị bỏ lại phía sau"
+                content="Vì chúng ta là một team, những thành viên tiếp thu chậm sẽ
                   được đội ngũ CFD kèm cặp đặc biệt, cùng sự hổ trợ từ các thành
                   viên khác. Vì mục tiêu cuối cùng là hoàn thành khóa học thật
-                  tốt.
-                </p>
-              </div>
+                  tốt."
+              />
             </div>
           </div>
         </div>
@@ -155,9 +150,9 @@ export default function Home() {
                         <picture>
                           <source
                             media="(max-width: 767px)"
-                            srcSet="img/Intersect.png"
+                            srcSet="/img/Intersect.png"
                           />
-                          <img data-flickity-lazyload="img/tes.jpg" alt="" />
+                          <img data-flickity-lazyload="/img/tes.jpg" alt="" />
                         </picture>
                       </div>
                       <div className="ct_m">
@@ -187,9 +182,9 @@ export default function Home() {
                         <picture>
                           <source
                             media="(max-width: 767px)"
-                            srcSet="img/Intersect.png"
+                            srcSet="/img/Intersect.png"
                           />
-                          <img data-flickity-lazyload="img/tes.jpg" alt="" />
+                          <img data-flickity-lazyload="/img/tes.jpg" alt="" />
                         </picture>
                       </div>
                       <div className="ct_m">
@@ -219,9 +214,9 @@ export default function Home() {
                         <picture>
                           <source
                             media="(max-width: 767px)"
-                            srcSet="img/Intersect.png"
+                            srcSet="/img/Intersect.png"
                           />
-                          <img data-flickity-lazyload="img/tes.jpg" alt="" />
+                          <img data-flickity-lazyload="/img/tes.jpg" alt="" />
                         </picture>
                       </div>
                       <div className="ct_m">
@@ -261,19 +256,19 @@ export default function Home() {
           <h2 className="main-title">Chúng ta là một team</h2>
         </div>
         <div className="list">
-          <img data-flickity-lazyload="img/img_team1.png" alt="" />
-          <img data-flickity-lazyload="img/img_team2.png" alt="" />
-          <img data-flickity-lazyload="img/img_team3.png" alt="" />
-          <img data-flickity-lazyload="img/img_team4.png" alt="" />
-          <img data-flickity-lazyload="img/img_team3.png" alt="" />
-          <img data-flickity-lazyload="img/img_team4.png" alt="" />
-          <img data-flickity-lazyload="img/img_team1.png" alt="" />
-          <img data-flickity-lazyload="img/img_team2.png" alt="" />
-          <img data-flickity-lazyload="img/img_team3.png" alt="" />
-          <img data-flickity-lazyload="img/img_team4.png" alt="" />
-          <img data-flickity-lazyload="img/img_team3.png" alt="" />
+          <img data-flickity-lazyload="/img/img_team1.png" alt="" />
+          <img data-flickity-lazyload="/img/img_team2.png" alt="" />
+          <img data-flickity-lazyload="/img/img_team3.png" alt="" />
+          <img data-flickity-lazyload="/img/img_team4.png" alt="" />
+          <img data-flickity-lazyload="/img/img_team3.png" alt="" />
+          <img data-flickity-lazyload="/img/img_team4.png" alt="" />
+          <img data-flickity-lazyload="/img/img_team1.png" alt="" />
+          <img data-flickity-lazyload="/img/img_team2.png" alt="" />
+          <img data-flickity-lazyload="/img/img_team3.png" alt="" />
+          <img data-flickity-lazyload="/img/img_team4.png" alt="" />
+          <img data-flickity-lazyload="/img/img_team3.png" alt="" />
           <div className="item carousel-cell">
-            <img data-flickity-lazyload="img/img_team4.png" alt="" />
+            <img data-flickity-lazyload="/img/img_team4.png" alt="" />
           </div>
         </div>
         <div className="controls">

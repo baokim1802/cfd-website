@@ -1,5 +1,5 @@
 import React from "react";
-import CourseThumbnail from "../../components/CourseThumbnail";
+import Thumbnail from "../../components/Thumbnail";
 
 export default function Course() {
   return (
@@ -14,7 +14,7 @@ export default function Course() {
             <h2 className="main-title">Khóa học Offline</h2>
           </div>
           <div className="list row">
-            <CourseThumbnail
+            <Thumbnail
               status="Đã kết thúc"
               userCount="12"
               heartCount="100"
@@ -22,8 +22,9 @@ export default function Course() {
               description="One of the best corporate fashion brands in Sydney???"
               instructor="Trần Nghĩa"
               link="front-end-can-ban"
+              img="/img/img2.png"
             />
-            <CourseThumbnail
+            <Thumbnail
               status="Đang diễn ra"
               userCount="12"
               heartCount="100"
@@ -31,8 +32,9 @@ export default function Course() {
               description="One of the best corporate fashion brands in Sydney???"
               instructor="Vương Đặng"
               link="react-js"
+              img="/img/img1.png"
             />
-            <CourseThumbnail
+            <Thumbnail
               status="Sắp khai giảng"
               userCount="12"
               heartCount="100"
@@ -40,8 +42,9 @@ export default function Course() {
               description="One of the best corporate fashion brands in Sydney???"
               instructor="Trần Nghĩa"
               link="animation"
+              img="/img/img3.png"
             />
-            <CourseThumbnail
+            <Thumbnail
               status="Sắp khai giảng"
               userCount="12"
               heartCount="100"
@@ -49,8 +52,9 @@ export default function Course() {
               description="One of the best corporate fashion brands in Sydney???"
               instructor="Trần Nghĩa"
               link="scss-grunt-bootstrap4"
+              img="/img/img4.png"
             />
-            <CourseThumbnail
+            <Thumbnail
               status="Sắp khai giảng"
               userCount="12"
               heartCount="100"
@@ -58,8 +62,9 @@ export default function Course() {
               description="One of the best corporate fashion brands in Sydney???"
               instructor="Trần Nghĩa"
               link="ux-ui"
+              img="/img/img5.png"
             />
-            <CourseThumbnail
+            <Thumbnail
               status="Sắp khai giảng"
               userCount="12"
               heartCount="100"
@@ -67,6 +72,7 @@ export default function Course() {
               description="One of the best corporate fashion brands in Sydney???"
               instructor="Trần Nghĩa"
               link="web-responsive"
+              img="/img/img6.png"
             />
           </div>
         </div>
@@ -77,29 +83,32 @@ export default function Course() {
             <h2 className="main-title">Khóa học Online</h2>
           </div>
           <div className="list row">
-            <CourseThumbnail
+            <Thumbnail
               status="Đã kết thúc"
               userCount="12"
               heartCount="100"
               name="Front-end căn bản"
               description="One of the best corporate fashion brands in Sydney???"
               instructor="Trần Nghĩa"
+              img="/img/img7.png"
             />
-            <CourseThumbnail
+            <Thumbnail
               status="Đã kết thúc"
               userCount="12"
               heartCount="100"
               name="Front-end nâng cao"
               description="One of the best corporate fashion brands in Sydney???"
               instructor="Trần Nghĩa"
+              img="/img/img8.png"
             />
-            <CourseThumbnail
+            <Thumbnail
               status="Đã kết thúc"
               userCount="12"
               heartCount="100"
               name="Laravel framework"
               description="One of the best corporate fashion brands in Sydney???"
               instructor="Trần Nghĩa"
+              img="/img/img1.png"
             />
           </div>
           <div className="text-deco">C</div>
