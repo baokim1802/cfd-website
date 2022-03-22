@@ -1,11 +1,11 @@
 import React from "react";
-import Thumbnail from "../../components/Thumbnail";
+import CourseCard from "../../components/CourseCard";
 
 export default function Project() {
   return (
     <div className="tab3" style={{ display: "block" }}>
       <div className="row">
-        <Thumbnail
+        <CourseCard
           name="Furnitown"
           description="Dự án hoàn thành trong khóa CFD1 Offline của CFD Team."
           instructor="Trần Nghĩa"
@@ -13,7 +13,7 @@ export default function Project() {
           buttonText="Website"
           className="col-md-6 course"
         />
-        <Thumbnail
+        <CourseCard
           name="GboxMB"
           description="Dự án hoàn thành trong khóa CFD1 Offline của CFD Team."
           instructor="Trần Nghĩa"

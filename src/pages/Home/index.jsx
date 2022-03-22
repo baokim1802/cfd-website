@@ -1,7 +1,10 @@
-import React from "react";
-import Course from "../Course";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import TextItem from "./components/TextItem";
+import { courseService } from "../../services/course";
+import useQuery from "../../hooks/useQuery";
+import { homeService } from "../../services/home";
+import Course from "../Course";
 
 export default function Home() {
   return (

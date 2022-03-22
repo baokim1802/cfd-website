@@ -9,13 +9,15 @@ import ProfileCourse from "./pages/Profile/Course";
 import ProfileProject from "./pages/Profile/Project";
 import ProfilePayment from "./pages/Profile/Payment";
 import Coin from "./pages/Profile/Coin";
-import Course from "./pages/Course";
 import Cooperate from "./pages/Cooperate";
 import Team from "./pages/Team";
 import Payment from "./pages/Profile/Payment";
 import CourseDetail from "./pages/CourseDetail";
 import Page404 from "./pages/Page404";
 import CountDown from "./pages/CountDown";
+import { COURSE_DETAIL_PATH, COURSE_REGISTER_PATH } from "./constants/path";
+import CourseRegister from "./pages/CourseRegister";
+import Course from "./pages/Course";
 
 function App() {
   return (
@@ -25,7 +27,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/khoa-hoc" element={<Course />} />
           <Route path="/lien-he" element={<Cooperate />} />
-          <Route path="/khoa-hoc/:slug" element={<CourseDetail />} />
+          <Route path={COURSE_DETAIL_PATH} element={<CourseDetail />} />
+          <Route path={COURSE_REGISTER_PATH} element={<CourseRegister />} />
           <Route path="/ca-nhan" element={<Profile path="/ca-nhan" />}>
             <Route index element={<Info />} />
             <Route path="khoa-hoc" element={<ProfileCourse />} />
@@ -36,7 +39,6 @@ function App() {
           <Route path="/thanh-vien" element={<Team />} />
           <Route path="/huong-dan-thanh-toan" element={<Payment />} />
           <Route path="/dang-nhap" element={<Login />} />
-          <Route path="/dang-ky" element={<Register />} />
           <Route path="*" element={<Page404 />} />
         </Route>
         <Route path="/countdown" element={<CountDown />} />

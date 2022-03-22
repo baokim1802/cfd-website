@@ -1,7 +1,23 @@
 import React, { useState } from "react";
-import Input from "../components/Input";
+import { useParams } from "react-router-dom";
+import Input from "../../components/Input";
+import useQuery from "../../hooks/useQuery";
+import { currency } from "../../utils/number";
 
 export default function Register() {
+  const { id } = useParams();
+  const { data: detail } = useQuery(
+    async () => {
+      const res = await courseService.getDetail(id);
+      if (res.data.data) {
+        return res;
+      } else {
+        navigate(HOME_PATH);
+      }
+    },
+    [],
+    {}
+  );
   const [form, setForm] = useState({});
 
   const [errors, setErrors] = useState({});
@@ -52,7 +68,8 @@ export default function Register() {
                 <strong>Thời lượng:</strong> 18 buổi
               </div>
               <div className="time">
-                <strong>Học phí:</strong> 6.000.000 VND
+                <strong>Học phí:</strong>
+                {currency(detail.money)}
               </div>
             </div>
             <form className="form">

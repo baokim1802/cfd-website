@@ -14,3 +14,11 @@ input[type="password"] {
   font-family: main;
   font-size: 16px;
 }
+
+.course .wrap .bottom .teacher .avatar {
+  height: 36px;
+  img {
+    object-fit: cover;
+    height: 100%;
+  }
+}

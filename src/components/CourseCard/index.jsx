@@ -1,24 +1,27 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { generatePath, Link } from "react-router-dom";
+import { COURSE_DETAIL_PATH } from "../../constants/path";
 
-export default function Thumbnail({
-  status,
-  name,
-  description,
-  instructor,
+export default function CourseCard({
+  slug,
+  short_description,
+  thumbnail,
+  title,
+  id,
+  course_status,
+  teacher,
   userCount,
   heartCount,
-  img,
-  link,
-  buttonText,
-  className,
 }) {
+  console.log("Before generating detail path");
+  const detailPath = generatePath(COURSE_DETAIL_PATH, { slug, id });
+  console.log("detailPath", detailPath);
   return (
-    <div className={className || "col-md-4 course"}>
+    <div className="col-md-4 course">
       <div className="wrap">
-        <Link className="cover" to={`/khoa-hoc/${link || "chi-tiet"}`}>
-          <img src={img || "/img/img1.png"} alt="" />
-          {status && <span className="badge b1">{status}</span>}
+        <Link className="cover" to={detailPath}>
+          <img src={thumbnail.link} alt="" />
+          <span className="badge b1">{course_status}</span>
           <div className="hover">
             <div className="top">
               {userCount && (
@@ -40,18 +43,18 @@ export default function Thumbnail({
         </Link>
         <div className="info">
           <a className="name" href="#">
-            {name}
+            {title}
           </a>
-          <p className="des">{description}</p>
+          <p className="des">{short_description}</p>
         </div>
         <div className="bottom">
           <div className="teacher">
             <div className="avatar">
-              <img src="/img/avt.png" alt="" />
+              <img src={teacher.avatar.link} alt="" />
             </div>
-            <div className="name">{instructor}</div>
+            <div className="name">{teacher.title}</div>
           </div>
-          <div className="register-btn">{buttonText || "Đăng Ký"}</div>
+          <div className="register-btn">Đăng Ký</div>
         </div>
       </div>
     </div>

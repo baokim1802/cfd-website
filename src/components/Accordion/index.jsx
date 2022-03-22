@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function Accordion({ title, date, children }) {
+export default function Accordion({ index, title, content }) {
   const [isOpen, setIsOpen] = useState(false);
   const entryClicked = () => {
     console.log("button Clicked");
@@ -11,12 +11,12 @@ export default function Accordion({ title, date, children }) {
   return (
     <div className="accordion">
       <div className="accordion__title" onClick={entryClicked}>
-        <div className="date">{date}</div>
+        <div className="date">Ngày {index}</div>
         <h3>{title}</h3>
       </div>
       {isOpen ? (
         <div className="content" style={{ display: "block" }}>
-          {children}
+          {content}
         </div>
       ) : null}
     </div>
