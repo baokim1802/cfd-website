@@ -27,8 +27,8 @@ export default function CourseRegister() {
 
   useEffect(async () => {
     const res = await courseService.getDetail(id);
-    if (res.data.data) {
-      setDetail(res.data.data);
+    if (res.data) {
+      setDetail(res.data);
     }
   }, [id]);
 

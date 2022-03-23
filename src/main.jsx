@@ -8,11 +8,14 @@ import "./assets/dest/stylelibs.min.css";
 import "./assets/dest/fonts.css";
 import "./assets/styles/styles.scss";
 import "./assets/styles/custom.scss";
+import { AuthProvider } from "./context/AuthContext";
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <AuthProvider>
+        <App />
+      </AuthProvider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")

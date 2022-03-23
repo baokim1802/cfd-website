@@ -12,15 +12,15 @@ export default function CourseCard({
   teacher,
   userCount,
   heartCount,
+  className,
 }) {
-  console.log("Before generating detail path");
   const detailPath = generatePath(COURSE_DETAIL_PATH, { slug, id });
-  console.log("detailPath", detailPath);
+  // console.log("teacher", teacher);
   return (
-    <div className="col-md-4 course">
+    <div className={className || "col-md-4 course"}>
       <div className="wrap">
         <Link className="cover" to={detailPath}>
-          <img src={thumbnail.link} alt="" />
+          <img src={thumbnail?.link} alt="" />
           <span className="badge b1">{course_status}</span>
           <div className="hover">
             <div className="top">
@@ -50,7 +50,7 @@ export default function CourseCard({
         <div className="bottom">
           <div className="teacher">
             <div className="avatar">
-              <img src={teacher.avatar.link} alt="" />
+              <img src={teacher.avatar?.link} alt="" />
             </div>
             <div className="name">{teacher.title}</div>
           </div>

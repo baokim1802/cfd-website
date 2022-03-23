@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
 
 export default function Info() {
   const navigate = useNavigate();
@@ -8,13 +9,15 @@ export default function Info() {
   const onClick = () => {
     navigate("/");
   };
+
+  const { user } = useContext(AuthContext);
   return (
     <div className="tab1" style={{ display: "block" }}>
       <label>
         <p>
           Họ và tên<span>*</span>
         </p>
-        <input type="text" placeholder="Nguyễn Văn A" />
+        <input type="text" placeholder={user.name} />
       </label>
       <label>
         <p>
@@ -26,7 +29,7 @@ export default function Info() {
         <p>
           Email<span>*</span>
         </p>
-        <input placeholder="example@gmail.com" disabled="" type="text" />
+        <input placeholder={user.email} disabled="" type="text" />
       </label>
       <label>
         <p>

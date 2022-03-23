@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Outlet, NavLink, Navigate } from "react-router-dom";
 import { useState } from "react/cjs/react.development";
+import { AuthContext, AuthProvider } from "../../context/AuthContext";
 
 export default function Profile({ path }) {
   // const [tab, setTab] = useState();
@@ -13,6 +14,10 @@ export default function Profile({ path }) {
 
   // To Use: onClick={onClick(0)}
 
+  const { user } = useContext(AuthContext);
+
+  if (!user) return <Navigate to="/" />;
+
   const login = true; // change to false if user isn't validated
   return (
     <main className="profile" id="main">
@@ -21,10 +26,10 @@ export default function Profile({ path }) {
         <div className="top-info">
           <div className="avatar">
             {/* <span class="text">H</span> */}
-            <img src="/img/avatar-lg.png" alt="" />
+            <img src={user.avatar} alt="" />
             <div className="camera" />
           </div>
-          <div className="name">trần nghĩa</div>
+          <div className="name">{user.name}</div>
           <p className="des">Thành viên của team CFD1-OFFLINE</p>
         </div>
         <div className="container">

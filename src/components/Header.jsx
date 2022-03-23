@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { LOGIN_PATH } from "../constants/path";
+import { AuthContext } from "../context/AuthContext";
 
-export default function Header() {
+export default function Header({}) {
+  const { user, handleLogout } = useContext(AuthContext);
   const toggleMenu = () => {
     document.body.classList.toggle("menu-is-show");
   };
+
+  // console.log("Header rerender");
   return (
     <header id="header">
       <div className="wrap">
@@ -21,28 +26,37 @@ export default function Header() {
           <h1>CFD</h1>
         </Link>
         <div className="right">
-          <div className="have-login">
-            <div className="account">
-              <Link to="/ca-nhan" className="info">
-                <div className="name">Trần Lê Trọng Nghĩa</div>
-                <div className="avatar">
-                  <img src="/img/avt.png" alt="" />
-                </div>
+          {user ? (
+            <div className="have-login">
+              <div className="account">
+                <Link to="/ca-nhan" className="info">
+                  <div className="name">{user.name}</div>
+                  <div className="avatar">
+                    <img src={user.avatar} alt="" />
+                  </div>
+                </Link>
+              </div>
+              <div className="hamberger"></div>
+              <div className="sub">
+                <NavLink to="/ca-nhan/khoa-hoc">Khóa học của tôi</NavLink>
+                <NavLink to="/ca-nhan" end>
+                  Thông tin tài khoản
+                </NavLink>
+                <a href="#" onClick={handleLogout}>
+                  Đăng xuất
+                </a>
+              </div>
+            </div>
+          ) : (
+            <div className="not-login bg-none">
+              <Link to={LOGIN_PATH} className="btn-register">
+                Đăng nhập
               </Link>
+              <a href="login.html" className="btn main btn-open-login">
+                Đăng ký
+              </a>
             </div>
-            <div className="hamberger"></div>
-            <div className="sub">
-              <NavLink to="/ca-nhan/khoa-hoc">Khóa học của tôi</NavLink>
-              <NavLink to="/ca-nhan" end>
-                Thông tin tài khoản
-              </NavLink>
-              <NavLink to="/dang-nhap">Đăng xuất</NavLink>
-            </div>
-          </div>
-          {/* <div class="not-login bg-none">
-              <a href="#" class="btn-register">Đăng nhập</a>
-              <a href="login.html" class="btn main btn-open-login">Đăng ký</a>
-          </div> */}
+          )}
         </div>
       </div>
     </header>

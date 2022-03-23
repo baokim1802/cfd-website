@@ -1,14 +1,17 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 import Input from "../components/Input";
+import { AuthContext } from "../context/AuthContext";
 
 export default function Register() {
+  const { handleLogin, user } = useContext(AuthContext);
+  const [errorMessage, setErrorMessage] = useState();
   const navigate = useNavigate();
   const [form, setForm] = useState({});
 
   const [errors, setErrors] = useState({});
 
-  const btnClick = (ev) => {
+  const btnClick = async (ev) => {
     ev.preventDefault();
 
     const errorObj = {};
@@ -23,11 +26,17 @@ export default function Register() {
 
     setErrors(errorObj);
     if (Object.keys(errorObj).length === 0) {
-      navigate("/ca-nhan");
+      const message = await handleLogin(form);
+      if (message) {
+        setErrorMessage(message);
+      }
+      // navigate("/ca-nhan");
       // alert("Validated successfully!");
       // call api
     }
   };
+
+  if (user) return <Navigate to="/" />;
   return (
     <main className="register-course" id="main">
       <section>
@@ -49,6 +58,8 @@ export default function Register() {
                 error={errors.password}
                 required
               />
+
+              {errorMessage && <p className="error-text">{errorMessage}</p>}
               <button className="btn main rect" onClick={btnClick}>
                 Login
               </button>

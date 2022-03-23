@@ -6,7 +6,7 @@ export default function Course() {
   const [courses, setCourses] = useState();
 
   useEffect(() => {
-    courseService.getList().then((res) => setCourses(res.data.data));
+    courseService.getList().then((res) => setCourses(res.data));
   }, []);
 
   // const { data: courses } = useQuery(() => courseService.getList(), []);

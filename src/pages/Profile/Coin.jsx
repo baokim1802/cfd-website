@@ -34,7 +34,7 @@ export default function Coin() {
               <i>*Bạn có thể đổi COIN 1 lần</i>
             </small>
           </div>
-          <a href="javascript:void(0)" className="btn main">
+          <a href="#" className="btn main">
             Đổi COIN
           </a>
         </div>

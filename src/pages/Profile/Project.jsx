@@ -2,24 +2,34 @@ import React from "react";
 import CourseCard from "../../components/CourseCard";
 
 export default function Project() {
+  const teacher = {
+    avatar: { link: "https://www.cfdtraining.vn/uploads/vuong-cfd.jpg" },
+    title: "Đặng Vương",
+  };
   return (
     <div className="tab3" style={{ display: "block" }}>
       <div className="row">
         <CourseCard
           name="Furnitown"
-          description="Dự án hoàn thành trong khóa CFD1 Offline của CFD Team."
-          instructor="Trần Nghĩa"
+          short_description="Dự án hoàn thành trong khóa CFD1 Offline của CFD Team."
+          teacher={teacher}
           img="/img/img8.png"
           buttonText="Website"
           className="col-md-6 course"
+          slug="tmp"
+          id="1"
+          thumbnail={{ link: "/img/img1.png" }}
         />
         <CourseCard
           name="GboxMB"
-          description="Dự án hoàn thành trong khóa CFD1 Offline của CFD Team."
-          instructor="Trần Nghĩa"
+          short_description="Dự án hoàn thành trong khóa CFD1 Offline của CFD Team."
+          teacher={teacher}
           img="/img/img5.png"
           buttonText="Website"
           className="col-md-6 course"
+          slug="tmp"
+          id="2"
+          thumbnail={{ link: "/img/img1.png" }}
         />
       </div>
       <div className="btn-wrap">

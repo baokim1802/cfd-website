@@ -16,14 +16,17 @@ import Teacher from "./Teacher";
 
 export default function CourseDetail() {
   const [detail, setDetail] = useState({});
+
+  const [accordionOpen, setAccordionOpen] = useState(-1);
+
   const { id } = useParams();
   // console.log("id", id);
   const navigate = useNavigate();
   useEffect(async () => {
     const res = await courseService.getDetail(id);
 
-    if (res.data.data) {
-      setDetail(res.data.data);
+    if (res.data) {
+      setDetail(res.data);
       console.log("Getting data for course: ", id);
     } else {
       navigate(HOME_PATH);
@@ -99,9 +102,25 @@ export default function CourseDetail() {
             <img src="/img/course-detail-img.png" alt="" />
           </div>
           <h3 className="title">nội dung khóa học</h3>
-          {detail.content?.map((e, i) => (
-            <Accordion key={i} index={i + 1} {...e} />
-          ))}
+          <Accordion.Group>
+            {detail.content?.map((e, i) => (
+              <Accordion
+                onClick={() => setAccordionOpen(i)}
+                key={i}
+                index={i + 1}
+                {...e}
+              />
+            ))}
+          </Accordion.Group>
+          {/* {detail.content?.map((e, i) => (
+            <Accordion
+              onClick={() => setAccordionOpen(i)}
+              open={i === accordionOpen}
+              key={i}
+              index={i + 1}
+              {...e}
+            />
+          ))} */}
           <h3 className="title">yêu cầu cần có</h3>
           <div className="row row-check">
             {detail.required?.map((e, i) => (
