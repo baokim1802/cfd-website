@@ -5,7 +5,7 @@ export const authService = {
     return api.post("/login", data);
   },
   refreshToken(data) {
-    console.log("In refreshToken", data);
+    // console.log("In refreshToken", data);
     return api.post("/refresh-token", data);
   },
 };

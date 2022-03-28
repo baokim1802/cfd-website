@@ -23,11 +23,11 @@ api.interceptors.response.use(
     return res.data;
   },
   async (error) => {
-    console.log("Got error in middleware response", error);
-    console.log(error.request);
+    // console.log("Got error in middleware response", error);
+    // console.log(error.request);
     if (error.request.status === 403) {
       let token = getToken();
-      console.log("Token", token);
+      // console.log("Token", token);
 
       if (token) {
         const refresh = await authService.refreshToken({
@@ -38,7 +38,7 @@ api.interceptors.response.use(
           token.accessToken = refresh.data.accessToken;
           setToken(token);
 
-          console.log("error config after refreshing token", error.config);
+          // console.log("error config after refreshing token", error.config);
           return api(error.config);
         }
       }

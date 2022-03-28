@@ -1,10 +1,17 @@
 import React, { useContext } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 import { LOGIN_PATH } from "../constants/path";
 import { AuthContext } from "../context/AuthContext";
+import { authLogout } from "../stores/auth";
 
 export default function Header({}) {
-  const { user, handleLogout } = useContext(AuthContext);
+  // const { user, handleLogout } = useContext(AuthContext);
+
+  const { user } = useSelector((store) => store.auth);
+
+  const dispatch = useDispatch();
+
   const toggleMenu = () => {
     document.body.classList.toggle("menu-is-show");
   };
@@ -42,7 +49,7 @@ export default function Header({}) {
                 <NavLink to="/ca-nhan" end>
                   Thông tin tài khoản
                 </NavLink>
-                <a href="#" onClick={handleLogout}>
+                <a href="#" onClick={() => dispatch(authLogout())}>
                   Đăng xuất
                 </a>
               </div>

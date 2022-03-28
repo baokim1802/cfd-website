@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { useSelector } from "react-redux";
 import { Outlet, NavLink, Navigate } from "react-router-dom";
 import { useState } from "react/cjs/react.development";
 import { AuthContext, AuthProvider } from "../../context/AuthContext";
@@ -14,7 +15,9 @@ export default function Profile({ path }) {
 
   // To Use: onClick={onClick(0)}
 
-  const { user } = useContext(AuthContext);
+  // const { user } = useContext(AuthContext);
+
+  const { user } = useSelector((store) => store.auth);
 
   if (!user) return <Navigate to="/" />;
 

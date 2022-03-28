@@ -11,13 +11,17 @@ import "./assets/styles/custom.scss";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 import { AuthProvider } from "./context/AuthContext";
+import { Provider } from "react-redux";
+import store from "./stores";
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <AuthProvider>
+      <Provider store={store}>
+        {/* <AuthProvider> */}
         <App />
-      </AuthProvider>
+        {/* </AuthProvider> */}
+      </Provider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")

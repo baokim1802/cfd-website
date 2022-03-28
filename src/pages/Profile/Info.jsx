@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
@@ -10,7 +11,9 @@ export default function Info() {
     navigate("/");
   };
 
-  const { user } = useContext(AuthContext);
+  // const { user } = useContext(AuthContext);
+
+  const { user } = useSelector((store) => store.auth);
   return (
     <div className="tab1" style={{ display: "block" }}>
       <label>

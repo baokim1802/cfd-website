@@ -18,6 +18,7 @@ import CountDown from "./pages/CountDown";
 import { COURSE_DETAIL_PATH, COURSE_REGISTER_PATH } from "./constants/path";
 import CourseRegister from "./pages/CourseRegister";
 import Course from "./pages/Course";
+import Count from "./pages/Count";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/khoa-hoc" element={<Course />} />
           <Route path="/lien-he" element={<Cooperate />} />
+          <Route path="/counter" element={<Count />} />
           <Route path={COURSE_DETAIL_PATH} element={<CourseDetail />} />
           <Route path={COURSE_REGISTER_PATH} element={<CourseRegister />} />
           <Route path="/ca-nhan" element={<Profile path="/ca-nhan" />}>

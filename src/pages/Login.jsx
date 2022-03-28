@@ -1,11 +1,20 @@
 import React, { useContext, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Navigate, useNavigate } from "react-router-dom";
 import Input from "../components/Input";
 import { AuthContext } from "../context/AuthContext";
+import { authService } from "../services/auth";
+import userService from "../services/user";
+import { authLogin } from "../stores/auth";
+import { setToken } from "../utils/token";
 
 export default function Register() {
-  const { handleLogin, user } = useContext(AuthContext);
-  const [errorMessage, setErrorMessage] = useState();
+  // const { handleLogin, user } = useContext(AuthContext);
+
+  const { user, errorMessage } = useSelector((store) => store.auth);
+  const dispatch = useDispatch();
+
+  // const [errorMessage, setErrorMessage] = useState();
   const navigate = useNavigate();
   const [form, setForm] = useState({});
 
@@ -26,13 +35,7 @@ export default function Register() {
 
     setErrors(errorObj);
     if (Object.keys(errorObj).length === 0) {
-      const message = await handleLogin(form);
-      if (message) {
-        setErrorMessage(message);
-      }
-      // navigate("/ca-nhan");
-      // alert("Validated successfully!");
-      // call api
+      dispatch(authLogin(form));
     }
   };
 
