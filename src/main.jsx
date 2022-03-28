@@ -8,6 +8,8 @@ import "./assets/dest/stylelibs.min.css";
 import "./assets/dest/fonts.css";
 import "./assets/styles/styles.scss";
 import "./assets/styles/custom.scss";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+
 import { AuthProvider } from "./context/AuthContext";
 
 ReactDOM.render(

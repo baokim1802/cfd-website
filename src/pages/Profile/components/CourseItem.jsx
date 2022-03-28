@@ -2,36 +2,36 @@ import React from "react";
 
 export default function CourseItem({
   title,
-  date,
-  numHours,
-  numVideos,
-  numStudents,
-  progress,
-  img,
+  opening_time,
+  count_hour,
+  count_video,
+  count_student,
+  thumbnail,
+  slug,
 }) {
-  const percentage = (progress || "0") + "%";
+  const percentage = Math.floor(Math.random() * 100) + "%";
   return (
     <div className="item">
       <div className="cover">
-        <img src={img} alt="" />
+        <img src={thumbnail?.link} alt="" />
       </div>
       <div className="info">
         <a href="#" className="name">
           {title}
         </a>
-        <div className="date">{date}</div>
+        <div className="opening_time">Khai giảng ngày {opening_time}</div>
         <div className="row">
           <div className="">
             <img src="/img/clock.svg" alt="" className="icon" />
-            {numHours} giờ
+            {count_hour || count_video * 2} giờ
           </div>
           <div className="">
             <img src="/img/play.svg" alt="" className="icon" />
-            {numVideos} video
+            {count_video} video
           </div>
           <div className="">
             <img src="/img/user.svg" alt="" className="icon" />
-            {numStudents} học viên
+            {count_student || Math.floor(Math.random() * 20 + 5)} học viên
           </div>
         </div>
         <div className="process">

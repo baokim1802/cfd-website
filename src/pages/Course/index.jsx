@@ -1,18 +1,16 @@
 import React, { useEffect, useState } from "react";
 import CourseCard from "../../components/CourseCard";
 import { courseService } from "../../services/course";
+import useQuery from "../../hooks/useQuery";
 
 export default function Course() {
-  const [courses, setCourses] = useState();
+  // const [courses, setCourses] = useState();
 
-  useEffect(() => {
-    courseService.getList().then((res) => setCourses(res.data));
-  }, []);
+  // useEffect(() => {
+  //   courseService.getList().then((res) => setCourses(res.data));
+  // }, []);
 
-  // const { data: courses } = useQuery(() => courseService.getList(), []);
-
-  // const { data: gallery } = useQuery(() => homeService.gallery());
-  // const { data: review } = useQuery(() => homeService.review());
+  const { data: courses } = useQuery(() => courseService.getList(), []);
 
   return (
     <>
@@ -32,44 +30,6 @@ export default function Course() {
           </div>
         </div>
       </section>
-      {/* <section className="section-courseonline section-blue">
-        <div className="container">
-          <div className="textbox">
-            <h2 className="main-title">Khóa học Online</h2>
-          </div>
-          <div className="list row">
-            <CourseCard
-              status="Đã kết thúc"
-              userCount="12"
-              heartCount="100"
-              name="Front-end căn bản"
-              description="One of the best corporate fashion brands in Sydney???"
-              instructor="Trần Nghĩa"
-              img="/img/img7.png"
-
-            />
-            <CourseCard
-              status="Đã kết thúc"
-              userCount="12"
-              heartCount="100"
-              name="Front-end nâng cao"
-              description="One of the best corporate fashion brands in Sydney???"
-              instructor="Trần Nghĩa"
-              img="/img/img8.png"
-            />
-            <CourseCard
-              status="Đã kết thúc"
-              userCount="12"
-              heartCount="100"
-              name="Laravel framework"
-              description="One of the best corporate fashion brands in Sydney???"
-              instructor="Trần Nghĩa"
-              img="/img/img1.png"
-            />
-          </div>
-          <div className="text-deco">C</div>
-        </div>
-      </section> */}
     </>
   );
 }

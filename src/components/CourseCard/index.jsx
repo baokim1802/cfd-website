@@ -48,12 +48,14 @@ export default function CourseCard({
           <p className="des">{short_description}</p>
         </div>
         <div className="bottom">
-          <div className="teacher">
-            <div className="avatar">
-              <img src={teacher.avatar?.link} alt="" />
+          {teacher && (
+            <div className="teacher">
+              <div className="avatar">
+                <img src={teacher.avatar?.link} alt="" />
+              </div>
+              <div className="name">{teacher.title}</div>
             </div>
-            <div className="name">{teacher.title}</div>
-          </div>
+          )}
           <div className="register-btn">Đăng Ký</div>
         </div>
       </div>
