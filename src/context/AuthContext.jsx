@@ -1,7 +1,8 @@
 import { createContext, useEffect, useState } from "react";
-import { TOKEN_STORAGE_KEY, USER_STORAGE_KEY } from "../constants/key";
+import { USER_STORAGE_KEY } from "../constants/key";
 import { authService } from "../services/auth";
 import { userService } from "../services/user";
+import { clearToken, getToken, setToken } from "../utils/token";
 
 export const AuthContext = createContext();
 
@@ -13,12 +14,26 @@ if (_user) {
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(_user);
 
+  useEffect(async () => {
+    const token = getToken();
+
+    if (token) {
+      const user = await userService.getInfo();
+
+      if (user.data) {
+        setUser(user.data);
+      } else {
+        console.log("No user data", user);
+      }
+    }
+  }, []);
+
   useEffect(() => {
     if (user) {
       localStorage.setItem(USER_STORAGE_KEY, JSON.stringify(user));
     } else {
       localStorage.removeItem(USER_STORAGE_KEY);
-      localStorage.removeItem(TOKEN_STORAGE_KEY);
+      clearToken();
     }
   }, [user]);
 
@@ -35,8 +50,9 @@ export const AuthProvider = ({ children }) => {
     }
 
     if (res.data) {
-      localStorage.setItem(TOKEN_STORAGE_KEY, JSON.stringify(res.data));
+      setToken(res.data);
     }
+    console.log("getInfo in handleLogin");
     const user = await userService.getInfo();
 
     console.log("Got user", user);
