@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import Head from "../../components/Head";
 import Input from "../../components/Input";
+import { useCourseDetail } from "../../hooks/useCourseDetail";
 import useQuery from "../../hooks/useQuery";
 import { courseService } from "../../services/course";
 import { currency } from "../../utils/number";
@@ -20,10 +22,12 @@ export default function CourseRegister() {
   //   {}
   // );
 
-  const [form, setForm] = useState({});
-  const [errors, setErrors] = useState({});
-  const [detail, setDetail] = useState({});
-  const navigate = useNavigate();
+  // const [form, setForm] = useState({});
+  // const [errors, setErrors] = useState({});
+  // const [detail, setDetail] = useState({});
+  // const navigate = useNavigate();
+
+  const detail = useCourseDetail(id);
 
   useEffect(async () => {
     const res = await courseService.getDetail(id);
@@ -65,6 +69,9 @@ export default function CourseRegister() {
   };
   return (
     <main className="register-course" id="main">
+      <Head>
+        <title>{detail.title}</title>
+      </Head>
       <section>
         <div className="container">
           <div className="wrap container">

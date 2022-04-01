@@ -4,6 +4,7 @@ import { Link, NavLink } from "react-router-dom";
 import { LOGIN_PATH } from "../constants/path";
 import { AuthContext } from "../context/AuthContext";
 import { authLogout } from "../stores/auth";
+import { togglePopupLogin } from "../stores/page";
 
 export default function Header({}) {
   // const { user, handleLogout } = useContext(AuthContext);
@@ -14,6 +15,11 @@ export default function Header({}) {
 
   const toggleMenu = () => {
     document.body.classList.toggle("menu-is-show");
+  };
+
+  const openPopupLogin = (ev) => {
+    ev.preventDefault();
+    dispatch(togglePopupLogin(true));
   };
 
   // console.log("Header rerender");
@@ -56,7 +62,11 @@ export default function Header({}) {
             </div>
           ) : (
             <div className="not-login bg-none">
-              <Link to={LOGIN_PATH} className="btn-register">
+              <Link
+                to={LOGIN_PATH}
+                className="btn-register"
+                onClick={openPopupLogin}
+              >
                 Đăng nhập
               </Link>
               <a href="login.html" className="btn main btn-open-login">

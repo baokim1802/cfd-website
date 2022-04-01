@@ -2,6 +2,7 @@ import { USER_STORAGE_KEY } from "../constants/key";
 import { authService } from "../services/auth";
 import userService from "../services/user";
 import { clearToken, getToken, setToken } from "../utils/token";
+import { togglePopupLogin } from "./page";
 
 let _user = localStorage.getItem(USER_STORAGE_KEY);
 if (_user) {
@@ -22,6 +23,8 @@ export const authLogin = (form) => {
       return dispatch({ type: "auth/errorMessage", payload: res.message });
     }
 
+    dispatch(togglePopupLogin());
+    dispatch({ type: "auth/errorMessage", payload: null });
     setToken(res.data);
 
     const user = await userService.getInfo();

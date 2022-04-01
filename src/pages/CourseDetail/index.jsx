@@ -1,5 +1,6 @@
 import { Skeleton } from "@mui/material";
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import {
   generatePath,
   Link,
@@ -8,30 +9,35 @@ import {
   useParams,
 } from "react-router-dom";
 import Accordion from "../../components/Accordion";
+import CourseCard from "../../components/CourseCard";
+import Head from "../../components/Head";
 import { COURSE_REGISTER_PATH, HOME_PATH } from "../../constants/path";
+import { useCourseDetail } from "../../hooks/useCourseDetail";
+import { useCourseList } from "../../hooks/useCourseList";
 import useQuery from "../../hooks/useQuery";
 import { courseService } from "../../services/course";
+import { getCourseDetail } from "../../stores/course";
 import { currency } from "../../utils/number";
 import Teacher from "./Teacher";
 
 export default function CourseDetail() {
-  const [detail, setDetail] = useState({});
+  // const [detail, setDetail] = useState({});
 
   const [accordionOpen, setAccordionOpen] = useState(-1);
 
   const { id } = useParams();
   // console.log("id", id);
   const navigate = useNavigate();
-  useEffect(async () => {
-    const res = await courseService.getDetail(id);
+  // useEffect(async () => {
+  //   const res = await courseService.getDetail(id);
 
-    if (res.data) {
-      setDetail(res.data);
-      console.log("Getting data for course: ", id);
-    } else {
-      navigate(HOME_PATH);
-    }
-  }, [id]);
+  //   if (res.data) {
+  //     setDetail(res.data);
+  //     console.log("Getting data for course: ", id);
+  //   } else {
+  //     navigate(HOME_PATH);
+  //   }
+  // }, [id]);
 
   // const { data: detail } = useQuery(
   //   async () => {
@@ -46,16 +52,36 @@ export default function CourseDetail() {
   //   {}
   // );
 
+  // const dispatch = useDispatch();
+  // const { cache } = useSelector((store) => store.course);
+
+  // const detail = cache[id] || {};
+  // useEffect(() => {
+  //   dispatch(getCourseDetail(id));
+  // }, []);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [id]);
+
+  const detail = useCourseDetail(id);
+  const loading = !detail?.id;
+
   const { teacher, mentor } = detail;
 
   const registerPath = generatePath(COURSE_REGISTER_PATH, { id });
 
+  const list = useCourseList();
+
   return (
     <main className="course-detail" id="main">
+      <Head>
+        <title>{detail.title}</title>
+      </Head>
       <section className="banner style2" style={{ "--background": "#cde6fb" }}>
         <div className="container">
           <div className="info">
-            {detail.title ? (
+            {!loading ? (
               <h1>Thực Chiến {detail.title}</h1>
             ) : (
               <Skeleton height={128} width={"100%"} />
@@ -203,6 +229,9 @@ export default function CourseDetail() {
             <h2 className="main-title">Liên quan</h2>
           </div>
           <div className="list row">
+            {list?.slice(0, 3).map((e) => {
+              <CourseCard key={e.id} />;
+            })}
             {/* <CourseCard
               name="Front-end căn bản"
               description="One of the best corporate fashion brands in Sydney???"
